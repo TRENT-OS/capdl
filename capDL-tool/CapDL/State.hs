@@ -403,8 +403,8 @@ validCapArch X86_64 (IOPortsCap {}) = True
 validCapArch X86_64 IOSpaceMasterCap = True
 validCapArch X86_64 (IOSpaceCap {}) = True
 validCapArch X86_64 (IOPTCap {}) = True
-validCapArch ARM11 (ARMIOSpaceCap {}) = True
-validCapArch ARM11 (ARMIRQHandlerCap {}) = True
+validCapArch AARCH32 (ARMIOSpaceCap {}) = True
+validCapArch AARCH32 (ARMIRQHandlerCap {}) = True
 validCapArch AARCH64 (ARMIRQHandlerCap {}) = True
 validCapArch AARCH64 (PUDCap {}) = True
 validCapArch AARCH64 (PGDCap {}) = True
@@ -447,8 +447,8 @@ validObjArch _ (SC {}) = True
 validObjArch _ (RTReply {}) = True
 validObjArch RISCV (VCPU {}) = False
 validObjArch _ (VCPU {}) = True
-validObjArch ARM11 (ARMIODevice {}) = True
-validObjArch ARM11 (ARMIrq {}) = True
+validObjArch AARCH32 (ARMIODevice {}) = True
+validObjArch AARCH32 (ARMIrq {}) = True
 validObjArch IA32 (IOPorts {}) = True
 validObjArch IA32 (IODevice {}) = True
 validObjArch IA32 (IOPT {}) = True
@@ -481,7 +481,7 @@ validTCBSlotCap arch slot cap
     | slot == tcbVTableSlot
         = case arch of
                 IA32 -> is _PDCap cap
-                ARM11 -> is _PDCap cap
+                AARCH32 -> is _PDCap cap
                 X86_64 -> is _PML4Cap cap
                 AARCH64 -> is _PGDCap cap || is _PUDCap cap
                 RISCV -> is _PTCap cap
