@@ -435,8 +435,9 @@ static void parse_bootinfo(seL4_BootInfo *bootinfo, CDL_Model *spec)
      */
     free_slot_start += 16;
 
-    ZF_LOGD("  %ld free cap slots, from %ld to %ld",
+    ZF_LOGI("  %ld free cap slots (want %ld), from %ld to %ld",
             (long)(free_slot_end - free_slot_start),
+            (long)CONFIG_CAPDL_LOADER_MAX_OBJECTS,
             (long)free_slot_start,
             (long)free_slot_end);
 
